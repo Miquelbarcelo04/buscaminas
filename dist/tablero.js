@@ -39,7 +39,7 @@ class Tablero {
             tablaHTML += '<tr>';
             for (let columna = 0; columna < this.columnas; columna++) {
                 // Añadir un id único a cada casilla
-                tablaHTML += `<td id="casilla-${fila}-${columna}" style="padding: 0; margin: 0;"><img src="/img/square.gif" alt="casilla" style="display: block; width: 20px; height: 20px;"></td>`;
+                tablaHTML += `<td id="casilla-${fila}-${columna}" style="padding: 0; margin: 0;"><img src="/img/square.gif" alt="casilla" style="display: block; width: 25px; height: 25px;"></td>`;
             }
             tablaHTML += '</tr>';
         }
@@ -60,12 +60,38 @@ class Tablero {
             }
         }
     }
+    revelarCasilla(fila, columna) {
+        const casilla = this.tablero[fila][columna];
+        if (!casilla.esMostrada && !casilla.esmMarcada) {
+            casilla.esMostrada = true;
+            const casillaElemento = document.getElementById(`casilla-${fila}-${columna}`);
+            if (casilla.tieneMina) {
+                casillaElemento.innerHTML = '<img src="/img/mina.png" alt="mina" style="padding: 0; margin: 0; display: block; width: 25px; height: 25px;">';
+                alert('¡Has perdido!');
+            }
+            else {
+                let minasAlrededor = 0;
+                for (let f = fila - 1; f <= fila + 1; f++) {
+                    for (let c = columna - 1; c <= columna + 1; c++) {
+                        if (f >= 0 && f < this.filas && c >= 0 && c < this.columnas) {
+                            if (this.tablero[f][c].tieneMina) {
+                                minasAlrededor++;
+                            }
+                        }
+                    }
+                }
+                if (minasAlrededor > 0) {
+                    casillaElemento.innerHTML = `<img src="/img/Minesweeper_0.gif" alt="mina" style="padding: 0; margin: 0; display: block; width: 25px; height: 25px;">`;
+                }
+            }
+        }
+    }
     marcarCasilla(fila, columna) {
         const casilla = this.tablero[fila][columna];
         if (!casilla.esMostrada && !casilla.esmMarcada) {
             casilla.esmMarcada = true;
             const casillaElemento = document.getElementById(`casilla-${fila}-${columna}`);
-            casillaElemento.innerHTML = '<img src="/img/flag.png" alt="mina marcada" style=" padding: 0; margin: 0 display: block width: 22px; height: 22px;">';
+            casillaElemento.innerHTML = '<img src="/img/flag.png" alt="mina marcada" style=" padding: 0; margin: 0 display: block width: 27px; height: 27px;">';
         }
     }
 }
