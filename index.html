@@ -1,15 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscaminas</title>
+    <title>Buscamines</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0; /* Color de fons opcional */
+            font-family: 'Arial', sans-serif; /* Tipografia */
+        }
+        h1 {
+            color: #333; /* Color del text */
+            font-size: 2.5rem; /* Mida del text */
+            margin-bottom: 20px; /* Espaiat abans del tauler */
+            text-shadow: 2px 2px 4px #aaa; /* Sombra del text per a donar profunditat */
+        }
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid #999; /* Estil opcional per a les cel·les */
+            width: 25px;
+            height: 25px;
+        }
+    </style>
 </head>
 <body>
-    <script src="dist/casilla.js"></script>
-    <script src="dist/tablero.js"></script>
-    <script>
-        const juegoTablero = new Tablero(10,10);
-    </script>
+    <h1>Buscamines</h1>
+    <script src="dist/casella.js"></script>
+    <script src="dist/tauler.js"></script>
+    <script src="dist/joc.js"></script>
 </body>
 </html>

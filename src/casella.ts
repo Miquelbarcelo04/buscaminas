@@ -1,15 +1,15 @@
-// casilla.ts
-class Casilla {
-  tieneMina: boolean;
+// casella.ts
+class Casella {
+  teMina: boolean;
   esMostrada: boolean;
-  esmMarcada: boolean;
+  esMarcada: boolean;
   fila: number;
   columna: number;
 
   constructor(fila: number, columna: number) {
-    this.tieneMina = false;
+    this.teMina = false;
     this.esMostrada = false;
-    this.esmMarcada = false;
+    this.esMarcada = false;
     this.fila = fila;
     this.columna = columna;
   }

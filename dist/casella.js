@@ -1,10 +1,10 @@
 "use strict";
-// casilla.ts
-class Casilla {
+// casella.ts
+class Casella {
     constructor(fila, columna) {
-        this.tieneMina = false;
+        this.teMina = false;
         this.esMostrada = false;
-        this.esmMarcada = false;
+        this.esMarcada = false;
         this.fila = fila;
         this.columna = columna;
     }
